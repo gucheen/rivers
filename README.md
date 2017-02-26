@@ -1,2 +1,2 @@
 # rivers
-a browser-side background data loaders.
+browser-side data loaders that work in background, powered by service workers.

@@ -1,0 +1,21 @@
+{
+  "name": "rivers",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -w --config webpack.config.typescript.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.7",
+    "bulma": "^0.3.1",
+    "riot": "^3.3.1",
+    "typescript": "^2.3.0-dev.20170225",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {}
+}
