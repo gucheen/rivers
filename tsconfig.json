@@ -1,16 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2015",
     "module": "commonjs",
-    "isolatedModules": false,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
     "noImplicitAny": true,
-    "noImplicitUseStrict": false,
     "strictNullChecks": true,
-    "noEmitHelpers": true,
-    "noLib": false,
     "outDir": "dist/"
   }
 }
