@@ -12,8 +12,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    sourceMapFilename: '[name].bundle.js.map'
+    filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
   },
   module: {
     rules: [{
@@ -31,7 +31,7 @@ module.exports = {
 
     new webpack.NamedModulesPlugin(),
   ],
-  devtool: 'eval',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,

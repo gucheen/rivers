@@ -4,7 +4,7 @@ import { Task } from './models';
 const loaders = new TaskLoaders();
 
 self.addEventListener("install", (event) => {
-    console.log(loaders.queue.getCount());
+    
 });
 
 self.addEventListener("message", (event) => {
@@ -12,9 +12,5 @@ self.addEventListener("message", (event) => {
 
     const task: Task = event.data;
 
-    loaders.queue.enqueue(task);
-
-    loaders.store[task.query] = [];
-
-    loaders.processNext();
+    loaders.addTask(task);
 });

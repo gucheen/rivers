@@ -20,9 +20,18 @@
         query: 'test',
         filename: 'TEST',
       };
+      const anotherTask = {
+        query: 'another',
+        filename: 'ANOTHER',
+      };
+
       navigator.serviceWorker.controller.postMessage(
         task,
         [messageChannel.port2]
+      );
+
+      navigator.serviceWorker.controller.postMessage(
+        anotherTask
       );
     }
   </script>
