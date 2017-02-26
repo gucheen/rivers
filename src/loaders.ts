@@ -47,7 +47,7 @@ export class TaskLoaders implements Loaders {
         });
     }
 
-    processNext() {
+    async processNext() {
         if (this.queue.getCount() === 0) {
             console.log('Queue empty, all tasks were finished');
             return;
@@ -59,24 +59,23 @@ export class TaskLoaders implements Loaders {
         const task = this.queue.dequeue();
         this.idle = false;
         this.currentTask = task;
-        const data = this.loadData(task)
-            .then(() => {
-                this.store[task.query].push(data);
-                this.idle = true;
-                this.currentTask = this.idleTask;
-                if (this.queue.getCount()) {
-                    this.processNext();
-                } else {
-                    console.log('All tasks in queue have been finished');
-                    console.log(this.store);
-                }
-            });
+        const data = await this.loadData(task);
+        this.store[task.query].push(data);
+        this.idle = true;
+        this.currentTask = this.idleTask;
+        if (this.queue.getCount()) {
+            this.processNext();
+        } else {
+            console.log('All tasks in queue have been finished');
+            console.log(this.store);
+        }
+
     }
 
     addTask(task: Task) {
         this.queue.enqueue(task);
         this.store[task.query] = [];
-        
+
         if (this.idle && this.queue.getCount()) {
             this.processNext();
         }
